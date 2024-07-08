@@ -28,7 +28,7 @@ jobs:
     - name: Build and Push App image
       env:
         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-        ECR_REPOSITORY: clo835-db
+        ECR_REPOSITORY: clo835
         IMAGE_TAG: latest-app
       run: |
         ls -ltra
