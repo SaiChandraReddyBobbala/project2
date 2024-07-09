@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql
+  labels:
+    app: mysqlserver
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mysql
+  template:
+    metadata:
+      labels:
+        app: mysql
+    spec:
+      containers:
+      - name: mysql
+        image: 978139839838.dkr.ecr.us-east-1.amazonaws.com/clo835:latest-db
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          value: "mypwd"
+        ports:
+        - containerPort: 3306
+          protocol: TCP

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: webserver
+  name: app
+  namespace: myapp
+spec:
+  containers:
+  - name: app
+    image: 978139839838.dkr.ecr.us-east-1.amazonaws.com/clo835:latest-app
+    ports:
+    - containerPort: 8080
+      protocol: TCP
+    env:
+    - name: DBHOST
+      value: "mysql.mydatabase.svc.cluster.local"
+    - name: DBUSER
+      value: "root"
+    - name: DBPWD
+      value: "mypwd"
+    - name: DBPORT
+      value: "3306"
